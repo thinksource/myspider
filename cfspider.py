@@ -42,7 +42,7 @@ class cfspider:
                     facility=facility_col.string
 
 
-        table2=soup.find('div','candytool').next_sibling.next_sibling
+        table2=soup.find('div',id='list_middle').next_element.next_element
         table_body=table2.find('tbody')
         rows=table_body.find_all("tr")
         row=rows[2]
