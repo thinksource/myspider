@@ -42,20 +42,22 @@ class cfspider:
                     facility=facility_col.string
 
 
-        table2=soup.find('div',id='list_middle').next_element.next_element
+        table2=soup.find('div',id='list_middle').find('table')
         table_body=table2.find('tbody')
-        rows=table_body.find_all("tr")
-        row=rows[2]
-        row_text=row.tr.td.div.p.string
+        rooms=table_body.find_all("td",colspan="2")
+        row_text=rooms[2].string
         adobj.setdetails(row_text)
 
         pic_div=soup.find('div', id="divmov")
-        pic_tr=pic_div.find('table').find('tbody').find('table').find('tbody').find('tr')
-        cols=pic_tr.find_all('td')
-        for col in cols:
-            link=col.find(a)
-            pic_urls.append(link['href'])
-        adobj.setpics(pic_urls)
+        if(pic_div):
+            pic_tr=pic_div.find('table').find('tbody').find('table').find('tbody').find('tr')
+            cols=pic_tr.find_all('td')
+            for col in cols:
+                link=col.find('a')
+                pic_urls.append(link['href'])
+            adobj.setpics(pic_urls)
+        else:
+            adobj.setpics(None)
         return adobj
 
     def parse(self,part):
@@ -102,16 +104,18 @@ class cfspider:
             if rentad!=None:
                 rentad.setprice(price_str)
                 # self.getpage(url, rentad)
-                rentlist.append(rentad)
-        return rentlist
+                return rentad
+        return None
 
-
-
-    def work(self,listurltemplate, frompage, endpage):
-        self.listurl=listurltemplate
+    def work(self, frompage, endpage):
+        #self.listurl=listurltemplate
+        re=[]
         for i in range(frompage, endpage):
             mydic={"page":str(i)}
-            partlist=getlist(self, mydic)
-            for j in partlist:
-                rentad=parse(self,j)
-                getpage(self, rentad.inside["url"],rentad)
+            partlist=self.getlist(mydic)
+            for j in range(1, len(partlist)):S
+                rentad=self.parse(partlist[j])
+                adobj=self.getpage(rentad.inside["url"],rentad)
+                if adobj.inside not in re:
+                    re.append(adobj.inside)
+        return re

@@ -21,7 +21,7 @@ class rentads:
     def setcontact_telephone(self, p):
         self.inside["contact_telephone"]=p
 
-    def setaddentails(self,p):
+    def setdetails(self,p):
         self.inside["details"]=p
 
     def setroom_type(self,p):
@@ -36,3 +36,9 @@ class rentads:
             writer=csv.Dictwriter(csvfile, fieldnames=fieldnames)
             #writer.writeheader()
             writer.writerrow(self.inside)
+
+    # def __eq__(self, other):
+    #     if(self.inside==other.inside):
+    #          return True
+    #     else:
+    #          return False
