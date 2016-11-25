@@ -1,4 +1,4 @@
-import csv
+#import csv
 
 class rentads:
     def __init__(self, url,title):

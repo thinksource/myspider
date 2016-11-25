@@ -1,5 +1,12 @@
 # Spider for website:
 
+##Requirements:
+This is for python3, if you run on python2 you need to change print function.
+This module need module requests and js2py.
+You need to install them at first.
+
+pip install js2py, requests
+
 ## Main function:
 
 Scrable the useful information form website:
