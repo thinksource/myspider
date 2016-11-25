@@ -2,10 +2,10 @@
 
 ##Requirements:
 This is for python3, if you run on python2 you need to change print function.
-This module need module requests and js2py.
+This module need module requests, js2py and beautifulsoup4.
 You need to install them at first.
 
-pip install js2py, requests
+pip install js2py, requests, beautifulsoup4
 
 ## Main function:
 
