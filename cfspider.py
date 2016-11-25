@@ -113,7 +113,7 @@ class cfspider:
         for i in range(frompage, endpage):
             mydic={"page":str(i)}
             partlist=self.getlist(mydic)
-            for j in range(1, len(partlist)):S
+            for j in range(1, len(partlist)):
                 rentad=self.parse(partlist[j])
                 adobj=self.getpage(rentad.inside["url"],rentad)
                 if adobj.inside not in re:

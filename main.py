@@ -1,6 +1,8 @@
 from cfspider import *
 
-if __name__="main":
+if __name__=="__main__":
     urllink="http://www.sydneytoday.com/house_rent"
     cf=cfspider(urllink)
-    advertises=cf.work(1,10)
+    advertises=cf.work(0,10)
+    for i in advertises:
+        print(i)
