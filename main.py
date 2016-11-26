@@ -1,3 +1,6 @@
+
+#!/usr/bin/env python3
+
 from cfspider import *
 
 if __name__=="__main__":
