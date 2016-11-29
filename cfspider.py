@@ -1,9 +1,10 @@
-from sydneytoday import CloudflareScraper as cfscraper
+#from myspider import *
+from .sydneytoday import CloudflareScraper as cfscraper
 import requests
 from bs4 import BeautifulSoup
 import urllib
 import csv
-from rentads import rentads
+from .rentads import rentads
 class cfspider:
     def __init__(self, listurltemplate):
         self.root_url="http://www.sydneytoday.com"
